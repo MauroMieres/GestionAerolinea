@@ -1,0 +1,112 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0-windows7.0": {
+      "Biblioteca/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Biblioteca.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Biblioteca.dll": {}
+        }
+      },
+      "EntidadesAero/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/EntidadesAero.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EntidadesAero.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Biblioteca/1.0.0": {
+      "type": "project",
+      "path": "../Biblioteca/Biblioteca.csproj",
+      "msbuildProject": "../Biblioteca/Biblioteca.csproj"
+    },
+    "EntidadesAero/1.0.0": {
+      "type": "project",
+      "path": "../EntidadesAero/EntidadesAero.csproj",
+      "msbuildProject": "../EntidadesAero/EntidadesAero.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0-windows7.0": [
+      "Biblioteca >= 1.0.0",
+      "EntidadesAero >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\knofl\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\knofl\\source\\repos\\EntidadesAerolinea\\VistaAero\\VistaAero.csproj",
+      "projectName": "VistaAero",
+      "projectPath": "C:\\Users\\knofl\\source\\repos\\EntidadesAerolinea\\VistaAero\\VistaAero.csproj",
+      "packagesPath": "C:\\Users\\knofl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\knofl\\source\\repos\\EntidadesAerolinea\\VistaAero\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\knofl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0-windows7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "projectReferences": {
+            "C:\\Users\\knofl\\source\\repos\\EntidadesAerolinea\\Biblioteca\\Biblioteca.csproj": {
+              "projectPath": "C:\\Users\\knofl\\source\\repos\\EntidadesAerolinea\\Biblioteca\\Biblioteca.csproj"
+            },
+            "C:\\Users\\knofl\\source\\repos\\EntidadesAerolinea\\EntidadesAero\\EntidadesAero.csproj": {
+              "projectPath": "C:\\Users\\knofl\\source\\repos\\EntidadesAerolinea\\EntidadesAero\\EntidadesAero.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

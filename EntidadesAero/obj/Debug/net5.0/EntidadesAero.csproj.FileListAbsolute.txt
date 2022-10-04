@@ -1,0 +1,12 @@
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\obj\Debug\net5.0\EntidadesAero.csproj.AssemblyReference.cache
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\obj\Debug\net5.0\EntidadesAero.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\obj\Debug\net5.0\EntidadesAero.AssemblyInfoInputs.cache
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\obj\Debug\net5.0\EntidadesAero.AssemblyInfo.cs
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\obj\Debug\net5.0\EntidadesAero.csproj.CoreCompileInputs.cache
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\bin\Debug\net5.0\EntidadesAero.deps.json
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\bin\Debug\net5.0\EntidadesAero.dll
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\bin\Debug\net5.0\EntidadesAero.pdb
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\obj\Debug\net5.0\EntidadesAero.dll
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\obj\Debug\net5.0\refint\EntidadesAero.dll
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\obj\Debug\net5.0\EntidadesAero.pdb
+C:\Users\knofl\source\repos\EntidadesAerolinea\EntidadesAero\obj\Debug\net5.0\ref\EntidadesAero.dll

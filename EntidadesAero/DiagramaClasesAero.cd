@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EntidadesAero.Aerolinea" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEgQAAAAACAAAAAAQAABAAAAIAAAAAAAAAgACAAA=</HashCode>
+      <FileName>Aerolinea.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntidadesAero.Persona">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAABAAQAAACEAAAAgAAAAAAAAgBAAAIAAAAAAAA=</HashCode>
+      <FileName>Persona.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntidadesAero.Cliente">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntidadesAero.Vuelo">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAEQCgKAAAABEAAAAAAAgAAIgCAACCAAACAAACAgI=</HashCode>
+      <FileName>Vuelo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntidadesAero.Pasajero">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAABAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pasajero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntidadesAero.Pasaje">
+    <Position X="1" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Pasaje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntidadesAero.Aeronave">
+    <Position X="2.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQgAAAUIgAAEAIAABAAAACwAAAAAAQAAAAEAAAAAA=</HashCode>
+      <FileName>Aeronave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntidadesAero.Destino">
+    <Position X="1" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAgAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Destino.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntidadesAero.Vendedor">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAACAAAAAAAAAAQAAAAEAAAAAAA=</HashCode>
+      <FileName>Vendedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
