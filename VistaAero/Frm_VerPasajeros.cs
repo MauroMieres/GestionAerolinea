@@ -16,7 +16,7 @@ namespace VistaAero
         public Frm_VerPasajeros(Vuelo vuelo)
         {
             InitializeComponent();
-            dtg_pasajeros.DataSource = vuelo.ListaPasajeros1;
+            dtg_pasajeros.DataSource = vuelo.ListaPasajeros;
             dtg_pasajeros.Columns["Pasaje"].Visible = false;
             dtg_pasajeros.Columns["cantidadVuelosRealizados"].Visible = false;
         }

@@ -39,62 +39,12 @@ namespace VistaAero
             this.DialogResult = DialogResult.OK;
         }
 
+       
+
         private void btn_crearVuelo_Click(object sender, EventArgs e)
-        {
-            
+        {   
             Aeronave auxAeronave = (Aeronave)dtg_listaAeronaves.CurrentRow.DataBoundItem;
-          
-
-            if (auxAeronave is null)
-            {
-                MessageBox.Show("No se eligo una aeronave correctamente, vuelva a intentar.");
-            }
-            else
-            {
-                DateTime fechaPartida = cal_fechaSalida.SelectionRange.Start;
-                if (DateTime.Compare(fechaPartida, DateTime.Now.AddDays(6)) < 0)
-                {
-                    MessageBox.Show("La fecha de partida tiene que ser minimo 7 dias a partir de la fecha actual: " + DateTime.Now.AddDays(7).ToShortDateString());
-                    return;
-                }
-
-                if (!(auxAeronave.EstaDisponible))
-                {
-                    MessageBox.Show("Elija un aeronave disponible");
-                }
-                else
-                {
-                    if(cbo_destino.Text == cbo_origen.Text)
-                    {
-                        MessageBox.Show("Origen y destino no pueden ser el mismo");
-                    }
-                    else
-                    {
-                        foreach(Destino destino in Aerolinea.ListaDestinos)
-                        {
-                            if (destino.Nombre == cbo_destino.Text)
-                            {
-                                 auxDestino = destino;
-                            }
-                            if (destino.Nombre == cbo_origen.Text)
-                            {
-                                 auxOrigen = destino;
-                            }     
-                        }
-                        if (auxDestino is not null && auxOrigen is not null)
-                        {
-                            Vuelo auxVuelo = new Vuelo(auxDestino, cal_fechaSalida.SelectionRange.Start, auxOrigen, auxAeronave, chk_wifi.Checked, chk_comida.Checked);
-                            if (auxVuelo is not null)
-                            {
-                                Aerolinea.ListaVuelos.Add(auxVuelo);
-                                dtg_listaAeronaves.Update();
-                                dtg_listaAeronaves.Refresh();
-                                MessageBox.Show($"Vuelo creado con exito {Aerolinea.ListaVuelos.Count}");
-                            }
-                        }      
-                    }
-                }
-            }
+            CrearVuelo(auxAeronave);      
         }
 
         private void dtg_listaAeronaves_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -147,6 +97,60 @@ namespace VistaAero
                     {
                         if (destinos.Nombre != "Buenos Aires")
                             cbo_destino.Items.Add(destinos.Nombre);
+                    }
+                }
+            }
+        }
+
+        private void CrearVuelo(Aeronave auxAeronave)
+        {
+            if (auxAeronave is null)
+            {
+                MessageBox.Show("No se eligo una aeronave correctamente, vuelva a intentar.");
+            }
+            else
+            {
+                DateTime fechaPartida = cal_fechaSalida.SelectionRange.Start;
+                if (DateTime.Compare(fechaPartida, DateTime.Now.AddDays(6)) < 0)
+                {
+                    MessageBox.Show("La fecha de partida tiene que ser minimo 7 dias a partir de la fecha actual: " + DateTime.Now.AddDays(7).ToShortDateString());
+                    return;
+                }
+
+                if (!(auxAeronave.EstaDisponible))
+                {
+                    MessageBox.Show("Elija un aeronave disponible");
+                }
+                else
+                {
+                    if (cbo_destino.Text == cbo_origen.Text)
+                    {
+                        MessageBox.Show("Origen y destino no pueden ser el mismo");
+                    }
+                    else
+                    {
+                        foreach (Destino destino in Aerolinea.ListaDestinos)
+                        {
+                            if (destino.Nombre == cbo_destino.Text)
+                            {
+                                auxDestino = destino;
+                            }
+                            if (destino.Nombre == cbo_origen.Text)
+                            {
+                                auxOrigen = destino;
+                            }
+                        }
+                        if (auxDestino is not null && auxOrigen is not null)
+                        {
+                            Vuelo auxVuelo = new Vuelo(auxDestino, cal_fechaSalida.SelectionRange.Start, auxOrigen, auxAeronave, chk_wifi.Checked, chk_comida.Checked);
+                            if (auxVuelo is not null)
+                            {
+                                Aerolinea.ListaVuelos.Add(auxVuelo);
+                                dtg_listaAeronaves.Update();
+                                dtg_listaAeronaves.Refresh();
+                                MessageBox.Show($"Vuelo creado con exito {Aerolinea.ListaVuelos.Count}");
+                            }
+                        }
                     }
                 }
             }

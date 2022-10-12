@@ -105,7 +105,6 @@
             // 
             // tmr_updateVuelos
             // 
-            this.tmr_updateVuelos.Tick += new System.EventHandler(this.tmr_updateVuelos_Tick);
             // 
             // btn_cerrarSesion
             // 

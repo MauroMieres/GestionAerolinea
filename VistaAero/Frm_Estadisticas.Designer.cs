@@ -120,7 +120,7 @@
             this.Controls.Add(this.btn_volver);
             this.Name = "Frm_Estadisticas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_Estadisticas";
+            this.Text = "Estadisticas";
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Estadisticas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

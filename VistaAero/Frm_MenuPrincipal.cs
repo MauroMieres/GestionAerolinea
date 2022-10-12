@@ -14,8 +14,7 @@ namespace VistaAero
 {
     public partial class Frm_MenuPrincipal : Form
     {
-        List<Vuelo> listaVuelos = Aerolinea.ListaVuelos;
-        int ticks;
+        List<Vuelo> listaVuelos = Aerolinea.ListaVuelos;//es la info del datagrid
         public Frm_MenuPrincipal(Vendedor vendedor)
         {
             InitializeComponent();
@@ -23,24 +22,26 @@ namespace VistaAero
             dtg_vuelos.Columns["Destino"].Visible = false;
             dtg_vuelos.Columns["Origen"].Visible = false;
             dtg_vuelos.Columns["Aeronave"].Visible = false;
-           // tmr_updateVuelos.Start();
             lbl_usuarioConectado.Text = $"Usuario conectado: {vendedor.Nombre} {vendedor.Apellido}, {DateTime.Now.ToShortDateString()}";
         }
 
-        public override string Text { get; set; }
-
         private void btn_pasajeros_Click(object sender, EventArgs e)
         {
-                    Vuelo auxVuelo = (Vuelo)dtg_vuelos.CurrentRow.DataBoundItem;
-                    if (auxVuelo != null)
-                    {
-                        this.Hide();
-                        Frm_VerPasajeros frmVerPasajeros = new Frm_VerPasajeros(auxVuelo);
-                        frmVerPasajeros.ShowDialog();
-                        dtg_vuelos.Update();
-                        dtg_vuelos.Refresh();
-                        this.Show();
-                    }
+            if (dtg_vuelos.CurrentRow is null)
+            {
+                MessageBox.Show("No hay un vuelo elegido");
+            }
+            else
+            {
+                Vuelo auxVuelo = (Vuelo)dtg_vuelos.CurrentRow.DataBoundItem;
+                if (auxVuelo is not null)
+                {
+                    this.Hide();
+                    Frm_VerPasajeros frmVerPasajeros = new Frm_VerPasajeros(auxVuelo);
+                    frmVerPasajeros.ShowDialog();
+                    this.Show();
+                }
+            }
         }
 
         private void btn_clientes_Click(object sender, EventArgs e)
@@ -53,24 +54,35 @@ namespace VistaAero
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
-            
+            if (dtg_vuelos.CurrentRow is null)
+            {
+                MessageBox.Show("No hay un vuelo elegido");
+            }
+            else
+            {
                 Vuelo auxVuelo = (Vuelo)dtg_vuelos.CurrentRow.DataBoundItem;
-                List<Vuelo> auxListaVuelos = new List<Vuelo>();
-                auxListaVuelos.Add(auxVuelo);
-                if (auxVuelo != null && auxListaVuelos != null)
+                if (auxVuelo.EstadoVuelo == "En tierra")
                 {
-                    this.Hide();
-                    Frm_AgregarPasajeros frmAgregarPasajeros = new Frm_AgregarPasajeros(auxListaVuelos);
-                    frmAgregarPasajeros.ShowDialog();
-                    dtg_vuelos.Update();
-                    dtg_vuelos.Refresh();
-                    this.Show();
+                    List<Vuelo> auxListaVuelos = new List<Vuelo>();
+                    auxListaVuelos.Add(auxVuelo);
+                    if (auxVuelo is not null && auxListaVuelos is not null)
+                    {
+                        this.Hide();
+                        Frm_AgregarPasajeros frmAgregarPasajeros = new Frm_AgregarPasajeros(auxListaVuelos);
+                        frmAgregarPasajeros.ShowDialog();
+                        dtg_vuelos.Update();
+                        dtg_vuelos.Refresh();
+                        this.Show();
+                    }
                 }
-        
-          
+                else
+                {
+                    MessageBox.Show("No se pueden agregar pasajeros a vuelos aterrizados o volando actualmente");
+                }
+            }
         }
 
-     
+
         private void btn_crearVuelo_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -79,16 +91,6 @@ namespace VistaAero
             dtg_vuelos.Update();
             dtg_vuelos.Refresh();
             this.Show();
-        }
-
-        private void tmr_updateVuelos_Tick(object sender, EventArgs e)
-        {
-            //ticks++;
-            //if(ticks == 50)
-            //{
-               
-            //    ticks = 0;
-            //}
         }
 
         private void btn_salir_Click(object sender, EventArgs e)

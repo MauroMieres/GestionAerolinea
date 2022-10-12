@@ -26,7 +26,7 @@ namespace EntidadesAero
         bool tieneComida;
         string codigoVuelo;
         string estadoVuelo;
-        string matriculaAeronave;
+       // string matriculaAeronave;
         float recaudacion;// tipo de pasajero x horas del vuelo x impuestos = recaudacion
 
         public Vuelo(Destino destino, DateTime horaSalida, Destino origen, Aeronave aeronave, List<Pasajero> listaPasajeros, bool tieneWifi, bool tieneComida) : this(destino, horaSalida, origen, aeronave, tieneWifi, tieneComida)
@@ -42,11 +42,11 @@ namespace EntidadesAero
                 this.AgregarHorasDeVueloAlAeronave();
                 this.AgregarRecaudacionAlDestino();
                 this.destino.CantidadDeVecesElegido++;
-                foreach(Pasajero pasajero in this.listaPasajeros)
+                foreach (Pasajero pasajero in this.listaPasajeros)
                 {
-                    foreach(Cliente cliente in Aerolinea.ListaClientes)
+                    foreach (Cliente cliente in Aerolinea.ListaClientes)
                     {
-                        if(pasajero.Dni == cliente.Dni)
+                        if (pasajero.Dni == cliente.Dni)
                         {
                             cliente.CantidadVuelosRealizados++;
                         }
@@ -55,7 +55,6 @@ namespace EntidadesAero
 
             }
         }
-
         public Vuelo(Destino destino, DateTime horaSalida, Destino origen, Aeronave aeronave, bool tieneWifi, bool tieneComida)
         {
             this.destino = destino;
@@ -76,7 +75,28 @@ namespace EntidadesAero
             this.recaudacion = 0;
         }
 
-        public List<Pasajero> ListaPasajeros { get => listaPasajeros; set => listaPasajeros = value; }
+        public override bool Equals(object obj)
+        {
+            Vuelo vuelo = obj as Vuelo;
+             return vuelo is not null && vuelo==this;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.codigoVuelo.GetHashCode();
+        }
+
+        public static bool operator ==(Vuelo v1, Vuelo v2)
+        {
+            return v1.codigoVuelo == v2.codigoVuelo;
+        }
+
+        public static bool operator !=(Vuelo v1, Vuelo v2)
+        {
+            return !(v1 == v2);
+        }
+
+        //public List<Pasajero> ListaPasajeros { get => listaPasajeros; set => listaPasajeros = value; }
         public Destino Destino { get => destino; set => destino = value; }
         [DisplayName("Destino")]
         public string DestinoS { get => Destino.Nombre; }
@@ -88,7 +108,7 @@ namespace EntidadesAero
         [DisplayName("Llegada")]
         public DateTime HoraLlegada { get => horaLlegada; set => horaLlegada = value; }
         public Aeronave Aeronave { get => aeronave; set => aeronave = value; }
-        public List<Pasajero> ListaPasajeros1 { get => listaPasajeros; set => listaPasajeros = value; }
+        public List<Pasajero> ListaPasajeros { get => listaPasajeros; set => listaPasajeros = value; }
         [DisplayName("Wifi")]
         public bool TieneWifi { get => tieneWifi; set => tieneWifi = value; }
         [DisplayName("Comida")]
@@ -103,25 +123,6 @@ namespace EntidadesAero
         public string EstadoVuelo { get => estadoVuelo; set => estadoVuelo = value; }
         public float Recaudacion { get => recaudacion; set => recaudacion = value; }
         public string MatriculaAeronave { get => this.aeronave.Matricula; }
-
-        //usar esta funcion cuando estoy agregando el pasajero al vuelo
-        //la lista de clientes viene de aerolinea.getclientes y el vuelo viene del datagrid
-        //public static void BuscarClienteVuelo(List<Cliente> clientes,Vuelo vuelo)
-        //{
-        //    foreach(Cliente cliente in clientes)
-        //    {
-        //        foreach(Pasajero pasajero in vuelo.listaPasajeros)
-        //        {
-        //            if(pasajero.Dni == cliente.Dni) 
-        //            {
-        //                if (DateTime.Compare(vuelo.horaLlegada, DateTime.Now) < 0)
-        //                {
-        //                    cliente.VuelosRealizados.Add(vuelo);
-        //                }     
-        //            }
-        //        }
-        //    }
-        //}
 
         public void AgregarHorasDeVueloAlAeronave()
         {
@@ -160,13 +161,16 @@ namespace EntidadesAero
 
         public DateTime CalcularHoraLlegada()
         {
+            Random random = new Random();
             if (this.Destino.TipoDestino == ETipoDestino.Nacional)
             {
-                return this.HoraSalida.AddHours(4);
+                int horas = random.Next(2, 4);
+                return this.HoraSalida.AddHours(horas);
             }
             else
             {
-                return this.HoraSalida.AddHours(8);
+                int horas = random.Next(8, 12);
+                return this.HoraSalida.AddHours(horas);
             }
         }
 

@@ -25,9 +25,40 @@ namespace EntidadesAero
             this.cantidadDeVecesElegido = 0;
         }
 
-        public ETipoDestino TipoDestino { get => tipoDestino; set => tipoDestino = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
+        public ETipoDestino TipoDestino { get => tipoDestino;  }
+        public string Nombre { get => nombre;  }
         public decimal Facturacion { get => facturacion; set => facturacion = value; }
         public int CantidadDeVecesElegido { get => cantidadDeVecesElegido; set => cantidadDeVecesElegido = value; }
+
+        public override string ToString()
+        {
+            StringBuilder info = new StringBuilder();
+            info.AppendLine("Tipo destino: " + this.TipoDestino.ToString());
+            info.AppendLine("Destino: " + this.Nombre);
+            info.AppendLine("Facturacion: " + this.Facturacion);
+            info.AppendLine("cantidadDeVecesElegido: " + this.CantidadDeVecesElegido);
+            return info.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            Destino destino = obj as Destino;
+            return destino is not null && destino == this;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Nombre.GetHashCode();
+        }
+
+        public static bool operator ==(Destino d1, Destino d2)
+        {
+            return d1.Nombre == d2.Nombre;
+        }
+
+        public static bool operator !=(Destino d1, Destino d2)
+        {
+            return !(d1 == d2);
+        }
     }
 }

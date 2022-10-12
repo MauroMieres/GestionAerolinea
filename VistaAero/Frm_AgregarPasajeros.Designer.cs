@@ -41,6 +41,8 @@
             this.num_dni = new System.Windows.Forms.NumericUpDown();
             this.num_edad = new System.Windows.Forms.NumericUpDown();
             this.cbo_tipoPasajero = new System.Windows.Forms.ComboBox();
+            this.chk_comida = new System.Windows.Forms.CheckBox();
+            this.chk_wifi = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_vuelo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_dni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_edad)).BeginInit();
@@ -58,7 +60,7 @@
             // 
             // btn_volver
             // 
-            this.btn_volver.Location = new System.Drawing.Point(14, 278);
+            this.btn_volver.Location = new System.Drawing.Point(12, 303);
             this.btn_volver.Name = "btn_volver";
             this.btn_volver.Size = new System.Drawing.Size(75, 23);
             this.btn_volver.TabIndex = 1;
@@ -68,7 +70,7 @@
             // 
             // btn_agregarPasajero
             // 
-            this.btn_agregarPasajero.Location = new System.Drawing.Point(782, 278);
+            this.btn_agregarPasajero.Location = new System.Drawing.Point(785, 303);
             this.btn_agregarPasajero.Name = "btn_agregarPasajero";
             this.btn_agregarPasajero.Size = new System.Drawing.Size(123, 23);
             this.btn_agregarPasajero.TabIndex = 2;
@@ -158,11 +160,33 @@
             this.cbo_tipoPasajero.Size = new System.Drawing.Size(121, 23);
             this.cbo_tipoPasajero.TabIndex = 12;
             // 
+            // chk_comida
+            // 
+            this.chk_comida.AutoSize = true;
+            this.chk_comida.Location = new System.Drawing.Point(782, 278);
+            this.chk_comida.Name = "chk_comida";
+            this.chk_comida.Size = new System.Drawing.Size(68, 19);
+            this.chk_comida.TabIndex = 13;
+            this.chk_comida.Text = "Comida";
+            this.chk_comida.UseVisualStyleBackColor = true;
+            // 
+            // chk_wifi
+            // 
+            this.chk_wifi.AutoSize = true;
+            this.chk_wifi.Location = new System.Drawing.Point(858, 278);
+            this.chk_wifi.Name = "chk_wifi";
+            this.chk_wifi.Size = new System.Drawing.Size(47, 19);
+            this.chk_wifi.TabIndex = 14;
+            this.chk_wifi.Text = "Wifi";
+            this.chk_wifi.UseVisualStyleBackColor = true;
+            // 
             // Frm_AgregarPasajeros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 313);
+            this.ClientSize = new System.Drawing.Size(917, 337);
+            this.Controls.Add(this.chk_wifi);
+            this.Controls.Add(this.chk_comida);
             this.Controls.Add(this.cbo_tipoPasajero);
             this.Controls.Add(this.num_edad);
             this.Controls.Add(this.num_dni);
@@ -202,5 +226,7 @@
         private System.Windows.Forms.NumericUpDown num_dni;
         private System.Windows.Forms.NumericUpDown num_edad;
         private System.Windows.Forms.ComboBox cbo_tipoPasajero;
+        private System.Windows.Forms.CheckBox chk_comida;
+        private System.Windows.Forms.CheckBox chk_wifi;
     }
 }

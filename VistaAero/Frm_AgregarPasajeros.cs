@@ -43,55 +43,91 @@ namespace VistaAero
             Vuelo auxVuelo = (Vuelo)dtg_vuelo.CurrentRow.DataBoundItem;
             if (auxVuelo is not null)
             {
-                if (txt_nombre.Text != null && txt_apellido.Text != null && num_dni.Value.ToString() is not null && num_edad.Value.ToString() is not null && cbo_tipoPasajero.SelectedItem is not null)
-                {
-                    if (!Funciones.ValidarNombresApellidos(txt_nombre.Text) || !Funciones.ValidarDni(Convert.ToInt32(num_dni.Value)))
+                
+                    if (!Funciones.ValidarNombresApellidos(txt_nombre.Text.Trim()) || !Funciones.ValidarDni(Convert.ToInt32(num_dni.Value)) || !Funciones.ValidarNombresApellidos(txt_apellido.Text.Trim()))
                     {
                         MessageBox.Show("Verifique los datos ingresados");
                         return;
                     }
 
-                    Cliente auxCliente = new Cliente(txt_nombre.Text, txt_apellido.Text, Convert.ToInt32(num_dni.Value), Convert.ToInt32(num_edad.Value));
-                    Pasaje auxPasajePrecio = new Pasaje(auxVuelo);
-                    Pasaje auxPasaje = new Pasaje(auxVuelo, auxPasajePrecio.CalcularPrecioPasaje(auxVuelo, ((ETipoPasajero)cbo_tipoPasajero.SelectedItem)), auxVuelo.CodigoVuelo);
+                    Cliente auxCliente = new Cliente(Funciones.FormatearNombreApellido(txt_nombre.Text.Trim()), Funciones.FormatearNombreApellido(txt_apellido.Text.Trim()), Convert.ToInt32(num_dni.Value), Convert.ToInt32(num_edad.Value));
+                   if(agregarPasajero(auxVuelo, auxCliente))
+                    MessageBox.Show("Pasajero agregado con exito!");       
+            }
+        }
 
-                    DialogResult dr = MessageBox.Show("¿Quiere comprar el pasaje?",
-                          $"EL VUELO A {auxVuelo.DestinoS}, en clase {cbo_tipoPasajero.SelectedItem.ToString()}, tiene un costo de: USD{auxPasaje.Precio}", MessageBoxButtons.YesNo);
-                    switch (dr)
-                    {
-                        case DialogResult.Yes:
-                            if (!Aerolinea.ClienteExistente(auxCliente))
-                                Aerolinea.ListaClientes.Add(auxCliente);
+        private bool agregarPasajero(Vuelo auxVuelo, Cliente auxCliente)
+        {
+            Pasaje auxPasajePrecio = new Pasaje(auxVuelo);
+            Pasaje auxPasaje = new Pasaje(auxVuelo, auxPasajePrecio.CalcularPrecioPasaje(auxVuelo, ((ETipoPasajero)cbo_tipoPasajero.SelectedItem)), auxVuelo.CodigoVuelo);
+            if (auxPasajePrecio is not null && auxPasaje is not null)
+            {
+                if (chk_comida.Checked == true && auxVuelo.TieneComida == false)
+                {
+                    MessageBox.Show("Este vuelo no posee comida");
+                    return false;
+                }
 
-                            Pasajero auxPasajero = new Pasajero(auxCliente.Nombre, auxCliente.Apellido, auxCliente.Dni, auxCliente.Edad, auxPasaje);
+                if (chk_wifi.Checked == true && auxVuelo.TieneWifi == false)
+                {
+                    MessageBox.Show("Este vuelo no posee wifi");
+                    return false;
+                }
 
-                            if (auxPasajero is not null)
+                string impuestosPasaje = auxPasaje.GetPrecioImpuestosExplicado(auxPasaje, ((ETipoPasajero)cbo_tipoPasajero.SelectedItem));
+
+                DialogResult dr = MessageBox.Show($"{auxVuelo.DestinoS}, {impuestosPasaje}", "¿Quiere comprar el pasaje?"
+                      , MessageBoxButtons.YesNo);
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        if (!Aerolinea.ClienteExistente(auxCliente))
+                            Aerolinea.ListaClientes.Add(auxCliente);
+
+                        Pasajero auxPasajero = new Pasajero(auxCliente.Nombre, auxCliente.Apellido, auxCliente.Dni, auxCliente.Edad, auxPasaje);
+
+                        if (auxPasajero is not null)
+                        {
+                            foreach (Pasajero pasajero in auxVuelo.ListaPasajeros)
                             {
-                                foreach (Pasajero pasajero in auxVuelo.ListaPasajeros1)
+                                if (pasajero == auxPasajero)//comparacion por sobrecarga de operadores
                                 {
-                                    if (pasajero.Dni == auxPasajero.Dni)
+                                    MessageBox.Show("Ese pasajero ya esta registrado en este vuelo!");
+                                    return false;
+                                }
+                            }
+
+                            foreach(Vuelo vuelo in Aerolinea.ListaVuelos)
+                            {
+                                foreach(Pasajero pasajero in vuelo.ListaPasajeros)
+                                {
+                                    if(vuelo.EstadoVuelo == "Volando")
                                     {
-                                        MessageBox.Show("Ese pasajero ya esta registrado en este vuelo!");
-                                        return;
+                                        if(auxPasajero == pasajero)
+                                        {
+                                            if(auxPasajero.Pasaje.Vuelo.HoraSalida > pasajero.Pasaje.Vuelo.HoraLlegada)
+                                            {
+                                                MessageBox.Show("Ese pasajero se encuentra volando, dicho vuelo aterriza posteriormente a la hora de salida del vuelo que usted quiere reservar");
+                                                return false;
+                                            }  
+                                        }
                                     }
                                 }
-                                auxVuelo.ListaPasajeros1.Add(auxPasajero);
-                                auxVuelo.AsignarAsientoPasajero(auxPasajero);
-                                MessageBox.Show("Añadido al vuelo!");
-                                dtg_vuelo.Update();
-                                dtg_vuelo.Refresh();
                             }
-                            break;
-                        case DialogResult.No:
-                            MessageBox.Show("Se cancelo la compra");
-                            return;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Papu pone bien los datos");
+
+                            auxVuelo.ListaPasajeros.Add(auxPasajero);
+                            auxVuelo.AsignarAsientoPasajero(auxPasajero);
+                            dtg_vuelo.Update();
+                            dtg_vuelo.Refresh();
+                            return true;
+                        }
+                        break;
+                    case DialogResult.No:
+                        MessageBox.Show("Se cancelo la compra");
+                        return false;
                 }
             }
+            return false;
         }
     }
 }
