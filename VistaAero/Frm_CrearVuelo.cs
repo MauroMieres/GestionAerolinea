@@ -155,5 +155,21 @@ namespace VistaAero
                 }
             }
         }
+
+        private void btn_SALIR_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = new DialogResult();
+
+            dialog = MessageBox.Show("¿Esta seguro de que desea salir?", "Alerta", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.Yes)
+            {
+                System.Environment.Exit(1);
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

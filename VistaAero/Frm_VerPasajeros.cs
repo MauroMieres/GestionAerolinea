@@ -25,5 +25,31 @@ namespace VistaAero
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void btn_verInfo_Click(object sender, EventArgs e)
+        {
+
+            if(dtg_pasajeros.CurrentRow is not null)
+            {
+                Pasajero auxPasajero = (Pasajero)dtg_pasajeros.CurrentRow.DataBoundItem;
+                MessageBox.Show(auxPasajero.ToString());
+            }
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = new DialogResult();
+
+            dialog = MessageBox.Show("¿Esta seguro de que desea salir?", "Alerta", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.Yes)
+            {
+                System.Environment.Exit(1);
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

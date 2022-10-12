@@ -16,10 +16,6 @@ namespace VistaAero
         public Frm_login()
         {
             InitializeComponent();
-            
-            //lbl_ayudauser.Hide();
-            //lbl_ayudauser.Text = "En esta casilla puede ingresar por teclado el nombre de usuario";
-            //lnk_ayuda.Text = "Activar Ayuda";
         }
 
         private void btn_loguear_Click(object sender, EventArgs e)
@@ -46,20 +42,6 @@ namespace VistaAero
             txt_password.Text = "1234";
         }
 
-        private void lnk_ayuda_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (lnk_ayuda.Text == "Activar Ayuda")
-            {
-                lbl_ayudauser.Show();
-                lnk_ayuda.Text = "Desactivar Ayuda";
-            }
-            else
-            {
-                lbl_ayudauser.Hide();
-                lnk_ayuda.Text = "Activar Ayuda";
-            }
-        }
-
         private void btn_salir_Click(object sender, EventArgs e)
         {
             DialogResult dialog = new DialogResult();
@@ -71,5 +53,7 @@ namespace VistaAero
             else
                 return;
         }
+
+     
     }
 }

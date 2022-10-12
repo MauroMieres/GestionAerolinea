@@ -20,7 +20,6 @@ namespace VistaAero
             CalcularDestinoMasSolicitado();
         }
 
-        public override string Text { get; set; }
 
         //Lista de destinos ordenados por facturación de forma descendente.
         private void btn_volver_Click(object sender, EventArgs e)
@@ -84,6 +83,22 @@ namespace VistaAero
             dtg_Estadisticas.DataSource = null;
             List<Cliente> listaOrdenada = Aerolinea.ListaClientes.OrderByDescending(o => o.CantidadVuelosRealizados).ToList();
             dtg_Estadisticas.DataSource = listaOrdenada;
+        }
+
+        private void btn_Salir_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = new DialogResult();
+
+            dialog = MessageBox.Show("¿Esta seguro de que desea salir?", "Alerta", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.Yes)
+            {
+                System.Environment.Exit(1);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

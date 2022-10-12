@@ -40,24 +40,30 @@
             this.lbl_Aeronave = new System.Windows.Forms.Label();
             this.chk_wifi = new System.Windows.Forms.CheckBox();
             this.chk_comida = new System.Windows.Forms.CheckBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.btn_SALIR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_listaAeronaves)).BeginInit();
             this.SuspendLayout();
             // 
             // dtg_listaAeronaves
             // 
             this.dtg_listaAeronaves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.helpProvider1.SetHelpString(this.dtg_listaAeronaves, "Muestra las aeronaves disponibles");
             this.dtg_listaAeronaves.Location = new System.Drawing.Point(287, 12);
             this.dtg_listaAeronaves.Name = "dtg_listaAeronaves";
             this.dtg_listaAeronaves.ReadOnly = true;
             this.dtg_listaAeronaves.RowTemplate.Height = 25;
-            this.dtg_listaAeronaves.Size = new System.Drawing.Size(728, 314);
+            this.helpProvider1.SetShowHelp(this.dtg_listaAeronaves, true);
+            this.dtg_listaAeronaves.Size = new System.Drawing.Size(728, 328);
             this.dtg_listaAeronaves.TabIndex = 0;
             this.dtg_listaAeronaves.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_listaAeronaves_CellClick);
             // 
             // btn_volver
             // 
-            this.btn_volver.Location = new System.Drawing.Point(27, 303);
+            this.helpProvider1.SetHelpString(this.btn_volver, "Vuelve al menu principal");
+            this.btn_volver.Location = new System.Drawing.Point(27, 291);
             this.btn_volver.Name = "btn_volver";
+            this.helpProvider1.SetShowHelp(this.btn_volver, true);
             this.btn_volver.Size = new System.Drawing.Size(121, 23);
             this.btn_volver.TabIndex = 1;
             this.btn_volver.Text = "Volver";
@@ -66,8 +72,10 @@
             // 
             // btn_crearVuelo
             // 
-            this.btn_crearVuelo.Location = new System.Drawing.Point(165, 303);
+            this.helpProvider1.SetHelpString(this.btn_crearVuelo, "Crea el vuelo (si esta todo seleccionado)");
+            this.btn_crearVuelo.Location = new System.Drawing.Point(165, 291);
             this.btn_crearVuelo.Name = "btn_crearVuelo";
+            this.helpProvider1.SetShowHelp(this.btn_crearVuelo, true);
             this.btn_crearVuelo.Size = new System.Drawing.Size(110, 23);
             this.btn_crearVuelo.TabIndex = 3;
             this.btn_crearVuelo.Text = "Crear vuelo";
@@ -78,8 +86,10 @@
             // 
             this.cbo_origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_origen.FormattingEnabled = true;
+            this.helpProvider1.SetHelpString(this.cbo_origen, "Permite elegir el origen del vuelo");
             this.cbo_origen.Location = new System.Drawing.Point(154, 30);
             this.cbo_origen.Name = "cbo_origen";
+            this.helpProvider1.SetShowHelp(this.cbo_origen, true);
             this.cbo_origen.Size = new System.Drawing.Size(121, 23);
             this.cbo_origen.TabIndex = 4;
             this.cbo_origen.SelectedIndexChanged += new System.EventHandler(this.cbo_origen_SelectedIndexChanged);
@@ -88,8 +98,11 @@
             // 
             this.cbo_destino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_destino.FormattingEnabled = true;
+            this.helpProvider1.SetHelpString(this.cbo_destino, "Permite elegir el destino del vuelo (Si es internacional puede tener como origen " +
+        "BS AS)");
             this.cbo_destino.Location = new System.Drawing.Point(27, 30);
             this.cbo_destino.Name = "cbo_destino";
+            this.helpProvider1.SetShowHelp(this.cbo_destino, true);
             this.cbo_destino.Size = new System.Drawing.Size(121, 23);
             this.cbo_destino.TabIndex = 5;
             this.cbo_destino.SelectedIndexChanged += new System.EventHandler(this.cbo_destino_SelectedIndexChanged);
@@ -114,16 +127,21 @@
             // 
             // cal_fechaSalida
             // 
+            this.helpProvider1.SetHelpString(this.cal_fechaSalida, "Permite elegir la fecha de  salida del vuelo (tiene que ser como minimo dentro de" +
+        " 7 dias)");
             this.cal_fechaSalida.Location = new System.Drawing.Point(27, 65);
             this.cal_fechaSalida.Name = "cal_fechaSalida";
+            this.helpProvider1.SetShowHelp(this.cal_fechaSalida, true);
             this.cal_fechaSalida.TabIndex = 8;
             // 
             // txt_aeronaveS
             // 
+            this.helpProvider1.SetHelpString(this.txt_aeronaveS, "Muestra la matricula del aeronave seleccionada");
             this.txt_aeronaveS.Location = new System.Drawing.Point(165, 262);
             this.txt_aeronaveS.Name = "txt_aeronaveS";
             this.txt_aeronaveS.PlaceholderText = "Seleccione un aeronave";
             this.txt_aeronaveS.ReadOnly = true;
+            this.helpProvider1.SetShowHelp(this.txt_aeronaveS, true);
             this.txt_aeronaveS.Size = new System.Drawing.Size(110, 23);
             this.txt_aeronaveS.TabIndex = 9;
             // 
@@ -139,8 +157,10 @@
             // chk_wifi
             // 
             this.chk_wifi.AutoSize = true;
+            this.helpProvider1.SetHelpString(this.chk_wifi, "checked = tiene wifi / unchecked = no tiene");
             this.chk_wifi.Location = new System.Drawing.Point(28, 234);
             this.chk_wifi.Name = "chk_wifi";
+            this.helpProvider1.SetShowHelp(this.chk_wifi, true);
             this.chk_wifi.Size = new System.Drawing.Size(47, 19);
             this.chk_wifi.TabIndex = 11;
             this.chk_wifi.Text = "Wifi";
@@ -149,18 +169,34 @@
             // chk_comida
             // 
             this.chk_comida.AutoSize = true;
+            this.helpProvider1.SetHelpString(this.chk_comida, "Check = tiene comida / unchecked = no tiene");
             this.chk_comida.Location = new System.Drawing.Point(91, 234);
             this.chk_comida.Name = "chk_comida";
+            this.helpProvider1.SetShowHelp(this.chk_comida, true);
             this.chk_comida.Size = new System.Drawing.Size(68, 19);
             this.chk_comida.TabIndex = 12;
             this.chk_comida.Text = "Comida";
             this.chk_comida.UseVisualStyleBackColor = true;
             // 
+            // btn_SALIR
+            // 
+            this.helpProvider1.SetHelpString(this.btn_SALIR, "Cierra la aplicacion");
+            this.btn_SALIR.Location = new System.Drawing.Point(29, 324);
+            this.btn_SALIR.Name = "btn_SALIR";
+            this.helpProvider1.SetShowHelp(this.btn_SALIR, true);
+            this.btn_SALIR.Size = new System.Drawing.Size(119, 23);
+            this.btn_SALIR.TabIndex = 13;
+            this.btn_SALIR.Text = "Salir";
+            this.btn_SALIR.UseVisualStyleBackColor = true;
+            this.btn_SALIR.Click += new System.EventHandler(this.btn_SALIR_Click);
+            // 
             // Frm_CrearVuelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 336);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1028, 352);
+            this.Controls.Add(this.btn_SALIR);
             this.Controls.Add(this.chk_comida);
             this.Controls.Add(this.chk_wifi);
             this.Controls.Add(this.lbl_Aeronave);
@@ -173,6 +209,10 @@
             this.Controls.Add(this.btn_crearVuelo);
             this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.dtg_listaAeronaves);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_CrearVuelo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear vuelo";
@@ -196,5 +236,7 @@
         private System.Windows.Forms.Label lbl_Aeronave;
         private System.Windows.Forms.CheckBox chk_wifi;
         private System.Windows.Forms.CheckBox chk_comida;
+        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.Button btn_SALIR;
     }
 }

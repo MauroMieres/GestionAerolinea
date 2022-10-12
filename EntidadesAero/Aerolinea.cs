@@ -10,7 +10,6 @@ namespace EntidadesAero
         static List<Cliente> listaClientes;
         static List<Destino> listaDestinos;
         static List<Vuelo> listaVuelos;
-      //  static List<Vendedor> listaVendedores;
         static Dictionary<int, Vendedor> listaVendedorD;
         
 
@@ -18,14 +17,12 @@ namespace EntidadesAero
         public static List<Cliente> ListaClientes { get => listaClientes; set => listaClientes = value; }
         public static List<Destino> ListaDestinos { get => listaDestinos; set => listaDestinos = value; }
         public static List<Vuelo> ListaVuelos { get => listaVuelos; set => listaVuelos = value; }
-       // public static List<Vendedor> ListaVendedores { get => listaVendedores; set => listaVendedores = value; }
         public static Dictionary<int, Vendedor> ListaVendedorD { get => listaVendedorD; set => listaVendedorD = value; }
 
         static Aerolinea()
         {
             listaAeronaves = Aerolinea.GenerarAeronaves();
             listaDestinos = Aerolinea.GenerarDestinos();
-           // listaVendedores = Aerolinea.GenerarVendores();
             listaClientes = Aerolinea.GenerarClientes();
             listaVuelos = Aerolinea.GenerarVuelos();
             listaVendedorD = Aerolinea.GenerarVendoresD();
@@ -152,17 +149,13 @@ namespace EntidadesAero
             return aux;
         }
 
-        //public static List<Vendedor> GenerarVendores()
-        //{
-        //    List<Vendedor> aux = new List<Vendedor>();
-        //    aux.Add(new Vendedor("Mauro", "Mieres", 24093426, 24, "mauro", "1234"));
-        //    return aux;
-        //}
-
         public static Dictionary<int, Vendedor> GenerarVendoresD()
         {
             Dictionary<int, Vendedor> auxD = new Dictionary<int, Vendedor>();
             auxD.Add(1, new Vendedor("Mauro", "Mieres", 24093426, 24, "mauro", "1234"));
+            auxD.Add(2, new Vendedor("Esteban", "Prieto", 77777777, 30, "estebancrack", "5555"));
+            auxD.Add(3, new Vendedor("Orne", "Curcio", 55555555, 20, "orneprofe", "cacatua"));
+            auxD.Add(4, new Vendedor("Lucas", "Rodriguez", 33333333, 40, "lucaslucas", "contraseña"));
             return auxD;
         }
 
