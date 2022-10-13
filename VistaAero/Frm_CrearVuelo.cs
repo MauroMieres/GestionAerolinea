@@ -148,7 +148,7 @@ namespace VistaAero
                                 Aerolinea.ListaVuelos.Add(auxVuelo);
                                 dtg_listaAeronaves.Update();
                                 dtg_listaAeronaves.Refresh();
-                                MessageBox.Show($"Vuelo creado con exito {Aerolinea.ListaVuelos.Count}");
+                                MessageBox.Show($"Vuelo creado con exito");
                             }
                         }
                     }
