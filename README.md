@@ -3,6 +3,30 @@
 -   **Sobre mí**:  Soy Mauro Mieres, tengo 24 años y realizar este trabajo fue de mi agrado ya que como hobby soy piloto y tengo cursos hechos relacionados al mundo aeronáutico. El trabajo en si me costó mucho, en lo personal me atrase con algunas clases y eso llevó a que aprender los conocimientos de las clases siguientes y el comienzo del trabajo fuese en fechas posteriores a las que me hubiese gustado. Si bien considero (al menos al momento de redactar esto) que el trabajo  aun funcionando no esta en condiciones de aprobación, siento que aprendí muchísimo, tanto como de las clases  dictadas por los profesores, como de los apuntes de la pagina web y también de StackOverflow, y creo reconocer los cambios que le hacen falta al trabajo para estar en condiciones que supongo que realizare para la instancia de recuperatorio.
 - (Faltan validaciones, sobrecarga de operadores, sobrecarga de algunos metodos, encapsulamiento (hice todas las propiedades setters incluido para agilizar el trabajo teniendo en cuenta el poco tiempo que yo tenia, y ademas tengo que entendes mejor las clases estaticas, etc)
 
+CORRECIONES:::
+-se corrigio un error donde se podian agregar pasajeros a vuelos aterrizados o volando actualmente
+-se agrego la comparacion por sobrecarga de operadores ==
+-se agrego una validacion para q un pasajero q actualmente esta volando no pueda
+anotarse en otro vuelo si la hora de salida es mayor a la hora de llegada del vuelo actual
+-se calculo de forma random la duracion de los vuelos segun internacional/nacional
+-se aplico el formato Xxxx Xxxxx a los nombres y apellidos ingresados por el usuario 
+-se agrego la sobrecarga metodos gethashcode e equals en todas las clases
+-se hizo que las ventanas no puedan cambiar de tamaño: fixedSingle
+-se agrego el boton de ayuda en todas las ventanas
+-se cambiaron los colores del fondo de todos los formularios
+-se agrego una imagen en el login
+-se paso a metodo el codigo la mayoria del codigo que funcionaba adentro de un control, ahora el control
+llama al metodo privado
+-se agrego el calculo del costo del viaje de forma mas precisa (impuesto pais, percepcion RG4815, tasas y cargos)
+-se implemento otra coleccion generica, diccionario, para los vendedores del sistema
+-se elimino el codigo comentado que no aporta nada
+-se refactorizacon varios nombres para mayor facilidad de lectura
+-no pude cargarle el vuelo al cliente para poder ver su historial de vuelos
+-se aplico el trim() a todos los txt de los formularios
+-se agregaron 3 vendedores mas asi son 4 como pide la consigna
+-la mayoria de las propiedades ahora son solo de lectura, con excepcion de algunas que se utilizan dentro de otras clases
+para modificar sus valores
+
 
 # **Resumen**:
 La aplicacion primero muestra un formulario para loguearse, el boton autocompletar carga mis datos para no tener que revisar el archivo.
