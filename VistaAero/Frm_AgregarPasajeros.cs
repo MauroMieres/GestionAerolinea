@@ -84,7 +84,7 @@ namespace VistaAero
                         if (!Aerolinea.ClienteExistente(auxCliente))
                             Aerolinea.ListaClientes.Add(auxCliente);
 
-                        Pasajero auxPasajero = new Pasajero(auxCliente.Nombre, auxCliente.Apellido, auxCliente.Dni, auxCliente.Edad, auxPasaje);
+                        Pasajero auxPasajero = new Pasajero(auxCliente.Nombre, auxCliente.Apellido, auxCliente.Dni, auxCliente.Edad, auxPasaje, (ETipoPasajero)cbo_tipoPasajero.SelectedItem);
 
                         if (auxPasajero is not null)
                         {

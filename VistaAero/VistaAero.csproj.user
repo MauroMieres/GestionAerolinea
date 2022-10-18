@@ -10,6 +10,9 @@
     <Compile Update="Frm_Estadisticas.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Frm_GananciasTotales.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Frm_ListaClientes.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -67,15 +67,10 @@ namespace VistaAero
 
         private void btn_ganancias_Click(object sender, EventArgs e)
         {
-            decimal ganancias = 0;
-            foreach(Vuelo vuelo in Aerolinea.ListaVuelos) 
-            {
-                if(vuelo.Aeronave.EstaDisponible == true)
-                {
-                    ganancias += (decimal)vuelo.Recaudacion;
-                }
-            }
-            MessageBox.Show($"Ganancias totales: {ganancias}");
+            this.Hide();
+            Frm_GananciasTotales frmGanancias = new Frm_GananciasTotales();
+            frmGanancias.ShowDialog();
+            this.Show();
         }
 
         private void btn_pasajerosFrecuentes_Click(object sender, EventArgs e)

@@ -3,7 +3,7 @@
 -   **Sobre mí**:  Soy Mauro Mieres, tengo 24 años y realizar este trabajo fue de mi agrado ya que como hobby soy piloto y tengo cursos hechos relacionados al mundo aeronáutico. El trabajo en si me costó mucho, en lo personal me atrase con algunas clases y eso llevó a que aprender los conocimientos de las clases siguientes y el comienzo del trabajo fuese en fechas posteriores a las que me hubiese gustado. Si bien considero (al menos al momento de redactar esto) que el trabajo  aun funcionando no esta en condiciones de aprobación, siento que aprendí muchísimo, tanto como de las clases  dictadas por los profesores, como de los apuntes de la pagina web y también de StackOverflow, y creo reconocer los cambios que le hacen falta al trabajo para estar en condiciones que supongo que realizare para la instancia de recuperatorio.
 - (Faltan validaciones, sobrecarga de operadores, sobrecarga de algunos metodos, encapsulamiento (hice todas las propiedades setters incluido para agilizar el trabajo teniendo en cuenta el poco tiempo que yo tenia, y ademas tengo que entendes mejor las clases estaticas, etc)
 
-CORRECIONES:::
+# **Correciones**:
 -se corrigio un error donde se podian agregar pasajeros a vuelos aterrizados o volando actualmente
 -se agrego la comparacion por sobrecarga de operadores ==
 -se agrego una validacion para q un pasajero q actualmente esta volando no pueda
@@ -26,7 +26,14 @@ llama al metodo privado
 -se agregaron 3 vendedores mas asi son 4 como pide la consigna
 -la mayoria de las propiedades ahora son solo de lectura, con excepcion de algunas que se utilizan dentro de otras clases
 para modificar sus valores
+-se corrigio el error en que los pasajeros premium descontaban asientos turistas
+-se muestran las ganancias divididas en destinos nacionales e internacionales
+-los vuelos creados ahora tienen hora de salida
+-el datagrid de vuelos del menu ppal ademas de actualizar con el boton, se actualiza automaticamente
+-Se agrego la propuesta de valor al programa y al readme
 
+# **Propuesta de valor**:
+Aprovechando la herencia que cree para el sistema, donde pasajero hereda de cliente, lo que propuse es que el cliente tenga un atributo que sea la lista de vuelos realizados por el mismo, de forma que, una vez que el estado del vuelo sea Aterrizado, se le adjunte al cliente el vuelo con todos sus datos al mismo. Luego, en el boton de ver clientes, ademas de estar ordenados por cantidad de vuelos, si seleccionamos algun cliente nos permitira ver los vuelos realizados por el mismo con los datos mas relevantes (se ocultan del datagrid datos del vuelo como asientos disponibles y otros no relevantes para este caso) de forma que en un futuro, de implementarse, podriamos ver la informacion del cliente, cual es su destino mas elegido, en que clase suele volar, que fechas suele elegir, etc, de modo que podriamos enviarle ofertas y/o promociones al mismo.
 
 # **Resumen**:
 La aplicacion primero muestra un formulario para loguearse, el boton autocompletar carga mis datos para no tener que revisar el archivo.
@@ -100,6 +107,6 @@ Me permitio hacer a la clase Persona abstracta, para que esta no pueda ser insta
 
 #Bibliotecas utilizadas:
 -
-1. System.Linq, (me permitio por el momento comparar los objetos dentro de las listas sin tener que crear los metodos)
+1. System.Linq, (Me permitio ordenar las listas de forma mas facil usando el orderby)
 2. System.ComponentModel, me permitio cambiar los headers de las propiedades de los objetos para que queden mas agradables a la vista
 

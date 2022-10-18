@@ -26,6 +26,7 @@ namespace EntidadesAero
             listaClientes = Aerolinea.GenerarClientes();
             listaVuelos = Aerolinea.GenerarVuelos();
             listaVendedorD = Aerolinea.GenerarVendoresD();
+            CargarVuelosRealizadosClientes();
         }
 
         public static Vendedor UsuarioExistente(string txt_user, string txt_password)
@@ -53,7 +54,7 @@ namespace EntidadesAero
             DateTime horaSalidaAux = DateTime.Now.AddHours(20);
 
             DateTime horaSalida1 = DateTime.Now.AddHours(-20);
-            DateTime horaSalida2 = DateTime.Now.AddHours(1);
+            DateTime horaSalida2 = DateTime.Now.AddHours(6);
             DateTime horaSalida3 = DateTime.Now.AddHours(-6);
 
 
@@ -61,11 +62,11 @@ namespace EntidadesAero
 
             Pasaje auxPasaje = new Pasaje(auxVuelo1, 200000, auxVuelo1.CodigoVuelo);
 
-            listaUniversal.Add(new Pasajero("Mauro", "Mieres", 41209897, 24, auxPasaje));
-            listaUniversal.Add(new Pasajero("Lucas", "Avalos", 41209777, 21, auxPasaje));
+            listaUniversal.Add(new Pasajero("Mauro", "Mieres", 41209897, 24, auxPasaje,ETipoPasajero.Turista));
+            listaUniversal.Add(new Pasajero("Lucas", "Avalos", 41209777, 21, auxPasaje, ETipoPasajero.Turista));
 
             List<Pasajero> listaVuelo3 = new List<Pasajero>();
-            listaVuelo3.Add(new Pasajero("Ulises", "Mieres", 22222222, 50, auxPasaje));
+            listaVuelo3.Add(new Pasajero("Ulises", "Mieres", 22222222, 50, auxPasaje, ETipoPasajero.Premium));
 
             List<Pasajero> auxListaP1 = listaUniversal;
             List<Pasajero> auxListaP2 = listaUniversal;
@@ -159,6 +160,24 @@ namespace EntidadesAero
             return auxD;
         }
 
-        
+        public static void CargarVuelosRealizadosClientes()
+        {
+            foreach(Vuelo vuelo in Aerolinea.listaVuelos)
+            {
+                if(vuelo.EstadoVuelo == "Aterrizado")
+                {
+                    foreach(Pasajero pasajero in vuelo.ListaPasajeros)
+                    {
+                        foreach (Cliente cliente in Aerolinea.listaClientes)
+                        {
+                            if(pasajero.Dni == cliente.Dni)
+                            {
+                                cliente.VuelosRealizados.Add(vuelo);
+                            }
+                        }
+                    }      
+                }
+            }
+        }
     }
 }

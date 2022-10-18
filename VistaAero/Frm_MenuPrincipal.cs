@@ -18,7 +18,7 @@ namespace VistaAero
         public Frm_MenuPrincipal(Vendedor vendedor)
         {
             InitializeComponent();
-            dtg_vuelos.DataSource = listaVuelos;
+            dtg_vuelos.DataSource = Aerolinea.ListaVuelos;
             dtg_vuelos.Columns["Destino"].Visible = false;
             dtg_vuelos.Columns["Origen"].Visible = false;
             dtg_vuelos.Columns["Aeronave"].Visible = false;
@@ -88,8 +88,7 @@ namespace VistaAero
             this.Hide();
             Frm_CrearVuelo frmVerAeronaves = new Frm_CrearVuelo();
             frmVerAeronaves.ShowDialog();
-            dtg_vuelos.Update();
-            dtg_vuelos.Refresh();
+            ActualizarDataGrid();
             this.Show();
         }
 
@@ -134,6 +133,15 @@ namespace VistaAero
         }
 
         private void btn_actualizar_Click(object sender, EventArgs e)
+        {
+            dtg_vuelos.DataSource = null;
+            dtg_vuelos.DataSource = listaVuelos;
+            dtg_vuelos.Columns["Destino"].Visible = false;
+            dtg_vuelos.Columns["Origen"].Visible = false;
+            dtg_vuelos.Columns["Aeronave"].Visible = false;
+        }
+
+        private void ActualizarDataGrid()
         {
             dtg_vuelos.DataSource = null;
             dtg_vuelos.DataSource = listaVuelos;

@@ -10,9 +10,10 @@ namespace EntidadesAero
     {
         Pasaje pasaje;
         ETipoPasajero tipoPasajero;
-        public Pasajero(string nombre, string apellido, int dni, int edad, Pasaje pasaje) : base(nombre, apellido, dni, edad)
+        public Pasajero(string nombre, string apellido, int dni, int edad, Pasaje pasaje, ETipoPasajero tipoPasajero) : base(nombre, apellido, dni, edad)
         {
             this.pasaje = pasaje;
+            this.tipoPasajero = tipoPasajero;
         }
 
         public Pasaje Pasaje { get => pasaje;  }

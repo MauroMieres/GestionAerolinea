@@ -26,13 +26,14 @@ namespace EntidadesAero
         bool tieneComida;
         string codigoVuelo;
         string estadoVuelo;
-       // string matriculaAeronave;
-        float recaudacion;// tipo de pasajero x horas del vuelo x impuestos = recaudacion
+        int cantidadDeBanios;
+        float recaudacion;
 
         public Vuelo(Destino destino, DateTime horaSalida, Destino origen, Aeronave aeronave, List<Pasajero> listaPasajeros, bool tieneWifi, bool tieneComida) : this(destino, horaSalida, origen, aeronave, tieneWifi, tieneComida)
         {
-            CargarPasajerosHardcodeados();
+            
             this.listaPasajeros = listaPasajeros;
+            CargarPasajerosHardcodeados();
             this.aeronave.HorasDeVuelo = 0;
             this.destino.CantidadDeVecesElegido = 0;
             if (this.estadoVuelo == "Aterrizado")
@@ -55,6 +56,8 @@ namespace EntidadesAero
 
             }
         }
+
+
         public Vuelo(Destino destino, DateTime horaSalida, Destino origen, Aeronave aeronave, bool tieneWifi, bool tieneComida)
         {
             this.destino = destino;
@@ -65,7 +68,9 @@ namespace EntidadesAero
             this.tieneComida = tieneComida;
             this.listaPasajeros = new List<Pasajero>();
 
-            this.horaLlegada = CalcularHoraLlegada();
+           
+           CalcularLlegadaSalida();
+
             this.asientosPremiumDisponibles = aeronave.AsientosPremium;
             this.asientosTuristaDisponibles = aeronave.AsientosTurista;
 
@@ -73,6 +78,7 @@ namespace EntidadesAero
             this.estadoVuelo = DeterminarEstadoVuelo();
             this.aeronave.EstaDisponible = false;
             this.recaudacion = 0;
+            this.cantidadDeBanios = aeronave.CantidadBanios;
         }
 
         public override bool Equals(object obj)
@@ -123,6 +129,8 @@ namespace EntidadesAero
         public string EstadoVuelo { get => estadoVuelo; set => estadoVuelo = value; }
         public float Recaudacion { get => recaudacion; set => recaudacion = value; }
         public string MatriculaAeronave { get => this.aeronave.Matricula; }
+        [DisplayName("Baños")]
+        public int CantidadDeBanios { get => cantidadDeBanios;}
 
         public void AgregarHorasDeVueloAlAeronave()
         {
@@ -153,24 +161,35 @@ namespace EntidadesAero
 
         public void AsignarAsientoPasajero(Pasajero pasajero)
         {
-            if (pasajero.TipoPasajero == ETipoPasajero.Turista)
-                this.asientosTuristaDisponibles--;
-            else
-                this.asientosPremiumDisponibles--;
+
+            switch (pasajero.TipoPasajero)
+            {
+                case ETipoPasajero.Turista:
+                    this.asientosTuristaDisponibles--;
+                    break;
+
+                case ETipoPasajero.Premium:
+                    this.asientosPremiumDisponibles--;
+                    break;
+            }           
         }
 
-        public DateTime CalcularHoraLlegada()
+        public bool CalcularLlegadaSalida()
         {
             Random random = new Random();
             if (this.Destino.TipoDestino == ETipoDestino.Nacional)
             {
                 int horas = random.Next(2, 4);
-                return this.HoraSalida.AddHours(horas);
+                this.horaLlegada = this.HoraSalida.AddHours(horas);
+                this.horaSalida = this.horaSalida.AddHours(-(horas));
+                return true;
             }
             else
             {
                 int horas = random.Next(8, 12);
-                return this.HoraSalida.AddHours(horas);
+                this.horaLlegada = this.HoraSalida.AddHours(horas);
+                this.horaSalida = this.horaSalida.AddHours(-(horas));
+                return true;
             }
         }
 

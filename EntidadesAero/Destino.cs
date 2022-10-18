@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace EntidadesAero
 {
@@ -28,6 +29,7 @@ namespace EntidadesAero
         public ETipoDestino TipoDestino { get => tipoDestino;  }
         public string Nombre { get => nombre;  }
         public decimal Facturacion { get => facturacion; set => facturacion = value; }
+        [DisplayName("Vuelos")]
         public int CantidadDeVecesElegido { get => cantidadDeVecesElegido; set => cantidadDeVecesElegido = value; }
 
         public override string ToString()

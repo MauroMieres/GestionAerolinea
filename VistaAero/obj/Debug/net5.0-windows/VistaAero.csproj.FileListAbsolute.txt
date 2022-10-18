@@ -28,3 +28,4 @@ C:\Users\knofl\source\repos\EntidadesAerolinea\VistaAero\obj\Debug\net5.0-window
 C:\Users\knofl\source\repos\EntidadesAerolinea\VistaAero\obj\Debug\net5.0-windows\VistaAero.Frm_login.resources
 C:\Users\knofl\source\repos\EntidadesAerolinea\VistaAero\obj\Debug\net5.0-windows\VistaAero.Frm_Estadisticas.resources
 C:\Users\knofl\source\repos\EntidadesAerolinea\VistaAero\obj\Debug\net5.0-windows\VistaAero.Properties.Resources.resources
+C:\Users\knofl\source\repos\EntidadesAerolinea\VistaAero\obj\Debug\net5.0-windows\VistaAero.Frm_GananciasTotales.resources

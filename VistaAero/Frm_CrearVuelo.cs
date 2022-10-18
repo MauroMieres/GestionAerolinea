@@ -142,7 +142,7 @@ namespace VistaAero
                         }
                         if (auxDestino is not null && auxOrigen is not null)
                         {
-                            Vuelo auxVuelo = new Vuelo(auxDestino, cal_fechaSalida.SelectionRange.Start, auxOrigen, auxAeronave, chk_wifi.Checked, chk_comida.Checked);
+                            Vuelo auxVuelo = new Vuelo(auxDestino, cal_fechaSalida.SelectionRange.Start.Date, auxOrigen, auxAeronave, chk_wifi.Checked, chk_comida.Checked);
                             if (auxVuelo is not null)
                             {
                                 Aerolinea.ListaVuelos.Add(auxVuelo);
