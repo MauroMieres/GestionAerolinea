@@ -4,33 +4,32 @@
 - (Faltan validaciones, sobrecarga de operadores, sobrecarga de algunos metodos, encapsulamiento (hice todas las propiedades setters incluido para agilizar el trabajo teniendo en cuenta el poco tiempo que yo tenia, y ademas tengo que entendes mejor las clases estaticas, etc)
 
 # **Correciones**:
--se corrigio un error donde se podian agregar pasajeros a vuelos aterrizados o volando actualmente
--se agrego la comparacion por sobrecarga de operadores ==
--se agrego una validacion para q un pasajero q actualmente esta volando no pueda
-anotarse en otro vuelo si la hora de salida es mayor a la hora de llegada del vuelo actual
--se calculo de forma random la duracion de los vuelos segun internacional/nacional
--se aplico el formato Xxxx Xxxxx a los nombres y apellidos ingresados por el usuario 
--se agrego la sobrecarga metodos gethashcode e equals en todas las clases
--se hizo que las ventanas no puedan cambiar de tamaño: fixedSingle
--se agrego el boton de ayuda en todas las ventanas
--se cambiaron los colores del fondo de todos los formularios
--se agrego una imagen en el login
--se paso a metodo el codigo la mayoria del codigo que funcionaba adentro de un control, ahora el control
-llama al metodo privado
--se agrego el calculo del costo del viaje de forma mas precisa (impuesto pais, percepcion RG4815, tasas y cargos)
--se implemento otra coleccion generica, diccionario, para los vendedores del sistema
--se elimino el codigo comentado que no aporta nada
--se refactorizacon varios nombres para mayor facilidad de lectura
--no pude cargarle el vuelo al cliente para poder ver su historial de vuelos
--se aplico el trim() a todos los txt de los formularios
--se agregaron 3 vendedores mas asi son 4 como pide la consigna
--la mayoria de las propiedades ahora son solo de lectura, con excepcion de algunas que se utilizan dentro de otras clases
-para modificar sus valores
--se corrigio el error en que los pasajeros premium descontaban asientos turistas
--se muestran las ganancias divididas en destinos nacionales e internacionales
--los vuelos creados ahora tienen hora de salida
--el datagrid de vuelos del menu ppal ademas de actualizar con el boton, se actualiza automaticamente
--Se agrego la propuesta de valor al programa y al readme
+#se corrigio un error donde se podian agregar pasajeros a vuelos aterrizados o volando actualmente.
+#se agrego la comparacion por sobrecarga de operadores ==.
+#se agrego una validacion para q un pasajero q actualmente esta volando no pueda.
+anotarse en otro vuelo si la hora de salida es mayor a la hora de llegada del vuelo actual.
+#se calculo de forma random la duracion de los vuelos segun internacional/nacional.
+#se aplico el formato Xxxx Xxxxx a los nombres y apellidos ingresados por el usuario .
+#se agrego la sobrecarga metodos gethashcode e equals en todas las clases.
+#se hizo que las ventanas no puedan cambiar de tamaño: fixedSingle.
+#se agrego el boton de ayuda en todas las ventanas.
+#se cambiaron los colores del fondo de todos los formularios.
+#se agrego una imagen en el login.
+#se paso a metodo el codigo la mayoria del codigo que funcionaba adentro de un control, ahora el control.
+llama al metodo privado.
+#se agrego el calculo del costo del viaje de forma mas precisa (impuesto pais, percepcion RG4815, tasas y cargos).
+#se implemento otra coleccion generica, diccionario, para los vendedores del sistema.
+#se elimino el codigo comentado que no aporta nada.
+#se refactorizacon varios nombres para mayor facilidad de lectura.
+#no pude cargarle el vuelo al cliente para poder ver su historial de vuelos.
+#se agregaron 3 vendedores mas asi son 4 como pide la consigna.
+#la mayoria de las propiedades ahora son solo de lectura, con excepcion de algunas que se utilizan dentro de otras clases.
+para modificar sus valores.
+#se corrigio el error en que los pasajeros premium descontaban asientos turistas.
+#se muestran las ganancias divididas en destinos nacionales e internacionales.
+#los vuelos creados ahora tienen hora de salida.
+#el datagrid de vuelos del menu ppal ademas de actualizar con el boton, se actualiza automaticamente.
+#Se agrego la propuesta de valor al programa y al readme.
 
 # **Propuesta de valor**:
 Aprovechando la herencia que cree para el sistema, donde pasajero hereda de cliente, lo que propuse es que el cliente tenga un atributo que sea la lista de vuelos realizados por el mismo, de forma que, una vez que el estado del vuelo sea Aterrizado, se le adjunte al cliente el vuelo con todos sus datos al mismo. Luego, en el boton de ver clientes, ademas de estar ordenados por cantidad de vuelos, si seleccionamos algun cliente nos permitira ver los vuelos realizados por el mismo con los datos mas relevantes (se ocultan del datagrid datos del vuelo como asientos disponibles y otros no relevantes para este caso) de forma que en un futuro, de implementarse, podriamos ver la informacion del cliente, cual es su destino mas elegido, en que clase suele volar, que fechas suele elegir, etc, de modo que podriamos enviarle ofertas y/o promociones al mismo.
