@@ -1,35 +1,34 @@
 ﻿# SISTEMA DE GESTION DE VUELOS 
 
 -   **Sobre mí**:  Soy Mauro Mieres, tengo 24 años y realizar este trabajo fue de mi agrado ya que como hobby soy piloto y tengo cursos hechos relacionados al mundo aeronáutico. El trabajo en si me costó mucho, en lo personal me atrase con algunas clases y eso llevó a que aprender los conocimientos de las clases siguientes y el comienzo del trabajo fuese en fechas posteriores a las que me hubiese gustado. Si bien considero (al menos al momento de redactar esto) que el trabajo  aun funcionando no esta en condiciones de aprobación, siento que aprendí muchísimo, tanto como de las clases  dictadas por los profesores, como de los apuntes de la pagina web y también de StackOverflow, y creo reconocer los cambios que le hacen falta al trabajo para estar en condiciones que supongo que realizare para la instancia de recuperatorio.
-- (Faltan validaciones, sobrecarga de operadores, sobrecarga de algunos metodos, encapsulamiento (hice todas las propiedades setters incluido para agilizar el trabajo teniendo en cuenta el poco tiempo que yo tenia, y ademas tengo que entendes mejor las clases estaticas, etc)
+- (Faltan validaciones, sobrecarga de operadores, sobrecarga de algunos metodos, encapsulamiento (hice todas las propiedades setters incluido para agilizar el trabajo teniendo en cuenta el poco tiempo que yo tenia, y ademas tengo que entendes mejor las clases estaticas, etc).
 
 # **Correciones**:
-#se corrigio un error donde se podian agregar pasajeros a vuelos aterrizados o volando actualmente.
-#se agrego la comparacion por sobrecarga de operadores ==.
-#se agrego una validacion para q un pasajero q actualmente esta volando no pueda.
+- Se corrigio un error donde se podian agregar pasajeros a vuelos aterrizados o volando actualmente.
+- Se agrego la comparacion por sobrecarga de operadores ==.
+- Se agrego una validacion para q un pasajero q actualmente esta volando no pueda.
 anotarse en otro vuelo si la hora de salida es mayor a la hora de llegada del vuelo actual.
-#se calculo de forma random la duracion de los vuelos segun internacional/nacional.
-#se aplico el formato Xxxx Xxxxx a los nombres y apellidos ingresados por el usuario .
-#se agrego la sobrecarga metodos gethashcode e equals en todas las clases.
-#se hizo que las ventanas no puedan cambiar de tamaño: fixedSingle.
-#se agrego el boton de ayuda en todas las ventanas.
-#se cambiaron los colores del fondo de todos los formularios.
-#se agrego una imagen en el login.
-#se paso a metodo el codigo la mayoria del codigo que funcionaba adentro de un control, ahora el control.
+- Se calculo de forma random la duracion de los vuelos segun internacional/nacional.
+- Se aplico el formato Xxxx Xxxxx a los nombres y apellidos ingresados por el usuario .
+- Se agrego la sobrecarga metodos gethashcode e equals en todas las clases.
+- Se  hizo que las ventanas no puedan cambiar de tamaño: fixedSingle.
+- Se  agrego el boton de ayuda en todas las ventanas.
+- Se cambiaron los colores del fondo de todos los formularios.
+- Se  agrego una imagen en el login.
+- Se paso a metodo el codigo la mayoria del codigo que funcionaba adentro de un control, ahora el control.
 llama al metodo privado.
-#se agrego el calculo del costo del viaje de forma mas precisa (impuesto pais, percepcion RG4815, tasas y cargos).
-#se implemento otra coleccion generica, diccionario, para los vendedores del sistema.
-#se elimino el codigo comentado que no aporta nada.
-#se refactorizacon varios nombres para mayor facilidad de lectura.
-#no pude cargarle el vuelo al cliente para poder ver su historial de vuelos.
-#se agregaron 3 vendedores mas asi son 4 como pide la consigna.
-#la mayoria de las propiedades ahora son solo de lectura, con excepcion de algunas que se utilizan dentro de otras clases.
+- Se agrego el calculo del costo del viaje de forma mas precisa (impuesto pais, percepcion RG4815, tasas y cargos).
+- Se implemento otra coleccion generica, diccionario, para los vendedores del sistema.
+- Se elimino el codigo comentado que no aporta nada.
+- Se refactorizacon varios nombres para mayor facilidad de lectura.
+- Se agregaron 3 vendedores mas asi son 4 como pide la consigna.
+- La mayoria de las propiedades ahora son solo de lectura, con excepcion de algunas que se utilizan dentro de otras clases.
 para modificar sus valores.
-#se corrigio el error en que los pasajeros premium descontaban asientos turistas.
-#se muestran las ganancias divididas en destinos nacionales e internacionales.
-#los vuelos creados ahora tienen hora de salida.
-#el datagrid de vuelos del menu ppal ademas de actualizar con el boton, se actualiza automaticamente.
-#Se agrego la propuesta de valor al programa y al readme.
+- Se corrigio el error en que los pasajeros premium descontaban asientos turistas.
+- Se muestran las ganancias divididas en destinos nacionales e internacionales.
+- Los vuelos creados ahora tienen hora de salida.
+- El datagrid de vuelos del menu ppal ademas de actualizar con el boton, se actualiza automaticamente.
+- Se agrego la propuesta de valor al programa y al readme.
 
 # **Propuesta de valor**:
 Aprovechando la herencia que cree para el sistema, donde pasajero hereda de cliente, lo que propuse es que el cliente tenga un atributo que sea la lista de vuelos realizados por el mismo, de forma que, una vez que el estado del vuelo sea Aterrizado, se le adjunte al cliente el vuelo con todos sus datos al mismo. Luego, en el boton de ver clientes, ademas de estar ordenados por cantidad de vuelos, si seleccionamos algun cliente nos permitira ver los vuelos realizados por el mismo con los datos mas relevantes (se ocultan del datagrid datos del vuelo como asientos disponibles y otros no relevantes para este caso) de forma que en un futuro, de implementarse, podriamos ver la informacion del cliente, cual es su destino mas elegido, en que clase suele volar, que fechas suele elegir, etc, de modo que podriamos enviarle ofertas y/o promociones al mismo.
@@ -37,28 +36,28 @@ Aprovechando la herencia que cree para el sistema, donde pasajero hereda de clie
 # **Resumen**:
 La aplicacion primero muestra un formulario para loguearse, el boton autocompletar carga mis datos para no tener que revisar el archivo.
 MENU PRICIPAL:
-#Cerrar sesion: nos devuelve al formulario de login
-#Estadisticas: nos lleva al formulario para visualizar estadisticas, facturacion de la aerolinea, clientes con mas vuelos realizados, destino mas solicitado, etc.
-#Ver Pasajeros: si seleccionamos alguna celda del datagrid, podremos ver los pasajeros de ese vuelo.
-#Agregar Pasajeros: permite agregar pasajeros al vuelo seleccionado en el datagrid.
-#Crear vuelo: nos lleva al formulario para la creacion de vuelos, mostrara la lista de aeronaves, aquellas que no esten disponibles (esten volando o ya tengan un vuelo programado) no podran usarse para crear un vuelo.
-#Ver clientes: nos muestra la lista de clientes (este boton quedo obsoleto luego de la creacion del boton de estadisticas)
-#Actualizar: logre actualizar con un timer de forma automatica el datagrid, pero me trajo problemas porque varias veces los botones detectaban que el objeto seleccionado era null (cuando no hay ninguna celda pintada de azul) y no pude controlar la excepcion, por lo cual preferi hacer un boton y refrescar manualmente, lo que selecciona automaticamente tambien al primer vuelo de la lista.
-#Salir: cierra la aplicacion sin usar la cruz, pregunta si estas seguro o no
+- Cerrar sesion: nos devuelve al formulario de login
+- Estadisticas: nos lleva al formulario para visualizar estadisticas, facturacion de la aerolinea, clientes con mas vuelos realizados, destino mas solicitado, etc.
+- Ver Pasajeros: si seleccionamos alguna celda del datagrid, podremos ver los pasajeros de ese vuelo.
+- Agregar Pasajeros: permite agregar pasajeros al vuelo seleccionado en el datagrid.
+- Crear vuelo: nos lleva al formulario para la creacion de vuelos, mostrara la lista de aeronaves, aquellas que no esten disponibles (esten volando o ya tengan un vuelo programado) no podran usarse para crear un vuelo.
+- Ver clientes: nos muestra la lista de clientes (este boton quedo obsoleto luego de la creacion del boton de estadisticas)
+- Logre actualizar con un timer de forma automatica el datagrid, pero me trajo problemas porque varias veces los botones detectaban que el objeto seleccionado era null (cuando no hay ninguna celda pintada de azul) y no pude controlar la excepcion, por lo cual preferi hacer un boton y refrescar manualmente, lo que selecciona automaticamente tambien al primer vuelo de la lista.
+- Salir: cierra la aplicacion sin usar la cruz, pregunta si estas seguro o no
 
 Contras:
 -
 (Al momento de escribir esto)
 Falta: cambiar colores de los formularios, agregar el boton de salir en todos ellos, implementar otra coleccion generica,
 
--Notas:
-Cuando creamos un vuelo, la fecha seleccionada tiene que ser minimo 7 dias de la fecha actual (Hay un mensaje de alerta en caso de querer crear un vuelo sin cumplir ese requisito)
-Cuando agregamos pasajeros, se compara el dni ingresado con la lista de clientes existentes (me falta hacer la sobrecarga de operadores == y !=), si no hay coincidencia, crea un nuevo cliente, en caso de existir, continua directamente con la creacion del pasajero.
-Si el pasajero ya esta cargado en el vuelo no permite agregarlo, por lo que puede agregarse en otros vuelos (no implemente un metodo para determinar si es fisicamente posible que asista a esos vuelos)
+**Notas**:
+- Cuando creamos un vuelo, la fecha seleccionada tiene que ser minimo 7 dias de la fecha actual (Hay un mensaje de alerta en caso de querer crear un vuelo sin cumplir ese requisito)
+- Cuando agregamos pasajeros, se compara el dni ingresado con la lista de clientes existentes (me falta hacer la sobrecarga de operadores == y !=), si no hay coincidencia, crea un nuevo cliente, en caso de existir, continua directamente con la creacion del pasajero.
+-  Si el pasajero ya esta cargado en el vuelo no permite agregarlo, por lo que puede agregarse en otros vuelos (no implemente un metodo para determinar si es fisicamente posible que asista a esos vuelos)
 
 Pros:
 -
-Los vuelos finalizados aumentan el contador de vuelos realizados por el cliente (mi idea es poder guardar el vuelo en una lista de vuelos que pertenezca al cliente pero por el momento no pude realizarlo)
+-  Los vuelos finalizados aumentan el contador de vuelos realizados por el cliente (mi idea es poder guardar el vuelo en una lista de vuelos que pertenezca al cliente pero por el momento no pude realizarlo)
 
 **Diagrama de clases**:
 - https://freeimage.host/i/LetCU7
