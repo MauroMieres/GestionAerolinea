@@ -2,8 +2,6 @@
 
 -   **Sobre mí**:  Soy Mauro Mieres, tengo 24 años y realizar este trabajo fue de mi agrado ya que como hobby soy piloto y tengo cursos hechos relacionados al mundo aeronáutico.
 
-- (Faltan validaciones, sobrecarga de operadores, sobrecarga de algunos metodos, encapsulamiento (hice todas las propiedades setters incluido para agilizar el trabajo teniendo en cuenta el poco tiempo que yo tenia, y ademas tengo que entendes mejor las clases estaticas, etc).
-
 # **Correciones**:
 - Se corrigio un error donde se podian agregar pasajeros a vuelos aterrizados o volando actualmente.
 - Se agrego la comparacion por sobrecarga de operadores ==.
