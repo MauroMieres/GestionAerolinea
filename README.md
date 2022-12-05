@@ -1,6 +1,7 @@
 ﻿# SISTEMA DE GESTION DE VUELOS 
 
--   **Sobre mí**:  Soy Mauro Mieres, tengo 24 años y realizar este trabajo fue de mi agrado ya que como hobby soy piloto y tengo cursos hechos relacionados al mundo aeronáutico. El trabajo en si me costó mucho, en lo personal me atrase con algunas clases y eso llevó a que aprender los conocimientos de las clases siguientes y el comienzo del trabajo fuese en fechas posteriores a las que me hubiese gustado. Si bien considero (al menos al momento de redactar esto) que el trabajo  aun funcionando no esta en condiciones de aprobación, siento que aprendí muchísimo, tanto como de las clases  dictadas por los profesores, como de los apuntes de la pagina web y también de StackOverflow, y creo reconocer los cambios que le hacen falta al trabajo para estar en condiciones que supongo que realizare para la instancia de recuperatorio.
+-   **Sobre mí**:  Soy Mauro Mieres, tengo 24 años y realizar este trabajo fue de mi agrado ya que como hobby soy piloto y tengo cursos hechos relacionados al mundo aeronáutico.
+
 - (Faltan validaciones, sobrecarga de operadores, sobrecarga de algunos metodos, encapsulamiento (hice todas las propiedades setters incluido para agilizar el trabajo teniendo en cuenta el poco tiempo que yo tenia, y ademas tengo que entendes mejor las clases estaticas, etc).
 
 # **Correciones**:
